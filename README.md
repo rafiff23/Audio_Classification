@@ -23,3 +23,53 @@ Human Neuron  |  Artificial Neural Network's Neuron
 ![neuron](assets/bnn.png) | ![neuron](assets/ann.PNG)
 
 This neural system architecture is what inspired the development of neural network models.
+
+---
+# Convolutional Neural Network (CNN) 
+
+Convolutional Neural Networks (CNNs) are widely used architectures for processing image data. However, as mentioned earlier, the processed audio data we have resembles image-like structures. This makes CNNs highly relevant for use in this context.  
+
+## **Convolution Concepts**  
+In the previous model, we learned how to classify song genres into different categories. However, there are some challenges:  
+
+- When using dense layers, the number of parameters to be trained is very large.  
+- The data used often contains irrelevant information, which does not improve the model but rather increases training time.  
+
+What if we could extract only the relevant features and remove all unnecessary data? This would allow the network to work with a much lighter feature set while maintaining (or even improving) the amount of useful information. This is where **convolution** comes in.  
+
+![](assets/CNN_all_layers.png)
+
+Based on the illustration, there are four different layers in a Convolutional Neural Network (CNN):
+
+1. **Convolutional Layer**  
+   - Extracts important features from the input data before passing them to the dense layer.  
+   - Reduces the complexity of the data while retaining valuable information, making classification more efficient.
+
+2. **Pooling Layer**  
+   - Reduces the size of the data while preserving only the most relevant information (e.g., important pixels in an image or key frequency patterns in audio).  
+   - Helps prevent overfitting by eliminating unnecessary details.
+
+3. **Flattening Layer**  
+   - Converts the multi-dimensional feature map into a one-dimensional array.  
+   - Prepares the extracted features for input into the dense layers.
+
+4. **Fully-Connected (Dense) Layer**  
+   - A standard neural network layer used for classification.  
+   - Uses the extracted and flattened features to make predictions.
+
+
+### Convolutional Layer**  
+A convolution extracts important information from the data using **filters**. These filters function similarly to real-world filters, designed for specific tasks and sensitive to particular patterns.  
+
+For example, consider a **UV filter** for a camera lens. It blocks UV rays to reduce excessive blue tint from the sky. Similarly, CNN filters detect essential patterns in data while discarding irrelevant noise.  
+
+![](assets/convolution.gif)
+
+Mathematically, the feedforward process in a convolutional neural network is called **"cross correlation"**.  
+The term convolution comes from its derivative function when the network performs backpropagation.  
+
+Below is an illustration and mathematical formula explaining how the network performs feedforward:
+
+$$ F \circ I (x,y) = \sum_{j=-N}^{N} \sum_{i=-N}^{N} F(i,j) \times I(x+i, y+j)$$
+
+![convolutional](assets/conv-hackernoon.gif)
